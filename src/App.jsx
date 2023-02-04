@@ -128,7 +128,7 @@ function App() {
 
         // The signed-in user info.
         const user = result.user;
-        
+        document.getElementById('info_usuario').innerHTML=JSON.stringify(user)
         
       }).catch((error) => {
         // Handle Errors here.
