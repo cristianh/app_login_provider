@@ -74,6 +74,7 @@ function App() {
       const credential = FacebookAuthProvider.credentialFromResult(result);
       const accessToken = credential.accessToken;
       console.log(accessToken);
+      document.getElementById('info_usuario').innerHTML=JSON.stringify(user)
 
       // ...
     })
@@ -97,7 +98,7 @@ function App() {
       .then((result) => {
         // The signed-in user info.
         const user = result.user;
-
+        document.getElementById('info_usuario').innerHTML=JSON.stringify(user)
         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
         const credential = FacebookAuthProvider.credentialFromResult(result);
         const accessToken = credential.accessToken;
@@ -127,7 +128,8 @@ function App() {
 
         // The signed-in user info.
         const user = result.user;
-        console.log(user)
+        
+        
       }).catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;
@@ -154,6 +156,9 @@ function App() {
       <button onClick={onLoginGoogle}>LOGIN-GOOGLE</button>
       <button onClick={onLoginFacebook}>LOGIN-FACEBOOK</button>
       <button onClick={onGetUserLogin}>GET USER LOGIN</button>
+      <div id="info_usuario">
+
+      </div>
     </div>
   )
 }
